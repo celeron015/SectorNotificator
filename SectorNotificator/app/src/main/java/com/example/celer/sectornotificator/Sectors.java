@@ -187,10 +187,10 @@ public class Sectors extends MapsActivity{
                 //ako je 20m od najblize tacke najblizeg sektora (srednje ili dve za koje postoje koordinate) notifikacija i gasenje booleana
                 //kako bi se sprecilo neprestano notifikovanje, nek kada se uoci da trenutni najblizi sektor nije isti kao prosli
                 //alarm se pali opet i proverava se koliko smo udaljeni
-                ALARM = "Priblizavate se sektoru" + index;
+                ALARM = "Priblizavate se sektoru" + (index+1);
                 alarm = false;
             } else {
-                ALARM = "Nalazite se" + distance(centerLatLng, currentLocation) + "od sektora" + index;
+                ALARM = "Nalazite se" + distance(centerLatLng, currentLocation) + "od sektora" + (index+1);
                 //kada ovo nestane pise ono nemate obavestenja i znaci dobrodosao u klub, sektor
             }
         }
