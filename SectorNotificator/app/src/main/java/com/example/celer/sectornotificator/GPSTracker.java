@@ -121,13 +121,13 @@ public class GPSTracker extends Service implements LocationListener {
             MapsActivity.mInterval=120000; //2 minutes
         }else{
             if (speed < 5){
-                MapsActivity.mInterval=2000;
-            }else if (speed>4 && speed<10){
-                MapsActivity.mInterval=2333;
-            }else if(speed>9 && speed<15){
-                MapsActivity.mInterval=2666;
-            }else if(speed>14){
                 MapsActivity.mInterval=3000;
+            }else if (speed>4 && speed<10){
+                MapsActivity.mInterval=3333;
+            }else if(speed>9 && speed<15){
+                MapsActivity.mInterval=3666;
+            }else if(speed>14){
+                MapsActivity.mInterval=3999;
             }
         } //u zavisnosti od brzine menjam interval mada isti k je samo sam gledao jel umem da uradim pa mi zao da izbrisem
 

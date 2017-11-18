@@ -156,41 +156,43 @@ public class Sectors extends MapsActivity{
     }
 
     public static void alarmForSector(LatLng currentNearestSector, LatLng currentLocation){
-        int index = middlePoints.indexOf(currentNearestSector);
-        List<LatLng> points = polygons.get(index).getPoints();
-        LatLng min1=points.get(0);
-        float minDistance1 = distance(currentLocation, min1);
-        LatLng min2=points.get(0);
-        float minDistance2 = distance(currentLocation, min2);
-        for (int i = 1; i<points.size(); i++) {
-            float distance = distance(points.get(i),currentLocation);
-            if(distance<minDistance1 || distance<minDistance2){
-                if(minDistance1==minDistance2){
-                    minDistance1=distance;
-                    min1=points.get(i); //svejedno jedan ili dva
-                }else{
-                    if(minDistance1<minDistance2){
-                        minDistance2=distance;
-                        min2=points.get(i);
-                    } else{
-                        minDistance1=distance;
-                        min1=points.get(i);
+        if(currentLocation != null && currentNearestSector != null) {
+            int index = middlePoints.indexOf(currentNearestSector);
+            List<LatLng> points = polygons.get(index).getPoints();
+            LatLng min1 = points.get(0);
+            float minDistance1 = distance(currentLocation, min1);
+            LatLng min2 = points.get(1);
+            float minDistance2 = distance(currentLocation, min2);
+            for (int i = 2; i < points.size(); i++) {
+                float distance = distance(points.get(i), currentLocation);
+                if (distance < minDistance1 || distance < minDistance2) {
+                    if (minDistance1 == minDistance2) {
+                        minDistance1 = distance;
+                        min1 = points.get(i); //svejedno jedan ili dva
+                    } else {
+                        if (minDistance1 < minDistance2) {
+                            minDistance2 = distance;
+                            min2 = points.get(i);
+                        } else {
+                            minDistance1 = distance;
+                            min1 = points.get(i);
+                        }
                     }
                 }
             }
-        }
-        //znaci nasao sam dve najblize tacke poligona, sad cu da nadjem i srednju, znas ti sta je LatLngBounds? znas ti kurac moj
-        LatLngBounds bounds = new LatLngBounds(min1, min2);
-        LatLng centerLatLng = bounds.getCenter();
-        if(distance(centerLatLng,currentLocation)<20.00 || distance(min1,currentLocation)<20.00 || distance(min1,currentLocation)<20.00){
-            //ako je 20m od najblize tacke najblizeg sektora (srednje ili dve za koje postoje koordinate) notifikacija i gasenje booleana
-            //kako bi se sprecilo neprestano notifikovanje, nek kada se uoci da trenutni najblizi sektor nije isti kao prosli
-            //alarm se pali opet i proverava se koliko smo udaljeni
-            ALARM = "Priblizavate se sektoru"+index;
-            alarm=false;
-        }else{
-            ALARM = "Nalazite se"+distance(centerLatLng,currentLocation)+"od sektora"+index;
-            //kada ovo nestane pise ono nemate obavestenja i znaci dobrodosao u klub, sektor
+            //znaci nasao sam dve najblize tacke poligona, sad cu da nadjem i srednju, znas ti sta je LatLngBounds? znas ti kurac moj
+            LatLngBounds bounds = new LatLngBounds(min1, min2);
+            LatLng centerLatLng = bounds.getCenter();
+            if (distance(centerLatLng, currentLocation) < 20.00 || distance(min1, currentLocation) < 20.00 || distance(min1, currentLocation) < 20.00) {
+                //ako je 20m od najblize tacke najblizeg sektora (srednje ili dve za koje postoje koordinate) notifikacija i gasenje booleana
+                //kako bi se sprecilo neprestano notifikovanje, nek kada se uoci da trenutni najblizi sektor nije isti kao prosli
+                //alarm se pali opet i proverava se koliko smo udaljeni
+                ALARM = "Priblizavate se sektoru" + index;
+                alarm = false;
+            } else {
+                ALARM = "Nalazite se" + distance(centerLatLng, currentLocation) + "od sektora" + index;
+                //kada ovo nestane pise ono nemate obavestenja i znaci dobrodosao u klub, sektor
+            }
         }
     }
 }
