@@ -1,0 +1,24 @@
+<resources>
+    <!--
+    TODO: Before you run your application, you need a Google Maps API key.
+
+    To get one, follow this link, follow the directions and press "Create" at the end:
+
+    https://console.developers.google.com/flows/enableapi?apiid=maps_android_backend&keyType=CLIENT_SIDE_ANDROID&r=63:7E:93:8F:03:31:8A:2E:C2:ED:88:CF:4B:97:D3:8D:14:E6:B5:BA%3Bcom.example.celer.sectornotificator
+
+    You can also add your credentials to an existing key, using these values:
+
+    Package name:
+    63:7E:93:8F:03:31:8A:2E:C2:ED:88:CF:4B:97:D3:8D:14:E6:B5:BA
+
+    SHA-1 certificate fingerprint:
+    63:7E:93:8F:03:31:8A:2E:C2:ED:88:CF:4B:97:D3:8D:14:E6:B5:BA
+
+    Alternatively, follow the directions here:
+    https://developers.google.com/maps/documentation/android/start#get-key
+
+    Once you have your key (it starts with "AIza"), replace the "google_maps_key"
+    string in this file.
+    -->
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyDyZF8oYHgwYXd2R10NjDuBrksuLE6Bugs</string>
+</resources>

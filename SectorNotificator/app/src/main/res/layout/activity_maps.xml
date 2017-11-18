@@ -1,0 +1,78 @@
+
+<LinearLayout xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:orientation="vertical">
+<LinearLayout
+
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="#F5F5DC">
+
+<TextView
+    android:id="@+id/TFpodaci"
+    android:layout_width="282dp"
+    android:layout_marginTop="7dp"
+    android:layout_height="wrap_content"
+    android:hint="The requested information will appear here"
+    android:textAlignment="center" />
+
+
+<Button
+    android:id="@+id/Bstart"
+    style="?android:attr/buttonStyleSmall"
+    android:layout_width="75dp"
+    android:layout_height="wrap_content"
+    android:layout_gravity="right"
+    android:layout_marginBottom="5dp"
+
+    android:background="@drawable/circle_button"
+    android:onClick="onStart"
+
+    android:text="Start"
+    android:textColor="#F5F5DC" />
+
+
+</LinearLayout>
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F5F5DC">
+
+        <TextView
+            android:id="@+id/TFkretanje"
+            android:layout_width="282dp"
+            android:layout_marginTop="7dp"
+            android:layout_height="wrap_content"
+            android:hint="The requested information will appear here"
+            android:textAlignment="center" />
+
+        </LinearLayout>
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F5F5DC">
+
+        <TextView
+            android:id="@+id/TFalarm"
+            android:layout_width="282dp"
+            android:layout_marginTop="7dp"
+            android:layout_height="wrap_content"
+            android:hint="The requested information will appear here"
+            android:textAlignment="center" />
+
+    </LinearLayout>
+
+    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:map="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.example.celer.sectornotificator.MapsActivity" />
+</LinearLayout>
